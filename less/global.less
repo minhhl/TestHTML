@@ -1,0 +1,163 @@
+* {
+  outline: none;
+}
+
+html {
+  width: 100%;
+  height: 100%;
+}
+
+// Font smoothing hack
+html, html a {
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.004);
+}
+
+body {
+  background-color: @bg-color;
+  color: @text-color;
+  font-family: @base-font;
+  font-size: @font-size;
+  overflow-x: hidden;
+  &.landing-page{
+    background-color: #f4f5f4;
+  }
+}
+
+input, textarea, button, a {
+  font-family: @base-font;
+}
+
+input, textarea, button, select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+
+textarea {
+  min-height: 50px;
+  resize: vertical;
+}
+
+a, a:hover, a:focus, a:active {
+  color: @text-color;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+p {
+  color: @text-color;
+  font-size: @font-size;
+  line-height: 24px;
+}
+
+strong {
+  font-weight: 600;
+}
+
+:focus {
+  outline: none;
+}
+
+.search-action{
+  input::placeholder {
+    color: whitesmoke !important;
+  }
+
+  ::-moz-placeholder {
+    opacity: 0.8;
+  }
+}
+
+.close{
+  display: block;
+  position: absolute;
+  right: -40px;
+  top: -40px;
+  .icon-close-dialog{
+    display: block;
+    background: url("../images/icon/close-icon.png") no-repeat center;
+    width: 40px;
+    height: 40px;
+    .transition();
+    &:hover{
+      background: url("../images/icon/close-icon-hover.png") no-repeat center;
+    }
+  }
+}
+
+.checkbox {
+  .styled-checkbox {
+    position: absolute; // take it out of document flow
+    opacity: 0; // hide it
+
+    & + label {
+      position: relative;
+      cursor: pointer;
+      padding: 0;
+      .checked{
+        position: relative;
+      }
+    }
+
+    // Box.
+    & + label .checked:before {
+      content: '';
+      margin-right: 10px;
+      display: inline-block;
+      vertical-align: text-top;
+      width: 20px;
+      height: 20px;
+      background: white;
+      border: 1px solid @green;
+      .border-radius(50%);
+    }
+
+    // Box hover
+    &:hover + label .checked:before {
+      background: @green;
+    }
+
+    // Box focus
+    &:focus + label .checked:before {
+      box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
+    }
+
+    // Box checked
+    &:checked + label .checked:before {
+      background: @green;
+    }
+
+    // Disabled state label.
+    &:disabled + label .checked {
+      color: @green;
+      cursor: auto;
+    }
+
+    // Disabled box.
+    &:disabled + label .checked:before {
+      box-shadow: none;
+      background: #ddd;
+    }
+
+    // Checkmark. Could be replaced with an images
+    &:checked + label .checked:after {
+      content: '';
+      position: absolute;
+      left: 5px;
+      top: 9px;
+      background: white;
+      width: 2px;
+      height: 2px;
+      box-shadow: 2px 0 0 white,
+      4px 0 0 white,
+        4px -2px 0 white,
+        4px -4px 0 white,
+        4px -6px 0 white,
+        4px -8px 0 white;
+      transform: rotate(45deg);
+    }
+  }
+
+}
