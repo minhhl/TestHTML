@@ -1,0 +1,50 @@
+#header {
+  display: block;
+  width: 100%;
+  position: relative;
+  padding: 12px 0;
+  .navbar-brand {
+    height: auto;
+  }
+  .navbar-toggle .icon-bar {
+    background-color: @text-color;
+  }
+  .navbar {
+    margin: 0;
+    .border-radius(0);
+    .navbar-right {
+      margin: 20px 0;
+      .menu-top {
+        .screen({ display: block; }, { display: inline-block; });
+        text-align: right;
+        li {
+          .screen({ display: block; }, { display: inline-block; });
+          a {
+            font-size: 16px;
+            color: @dark-blue;
+            .screen({ margin: 5px 15px; }, { margin: 0 15px; });
+            .transition();
+            display: block;
+            font-family: @header-font;
+            text-align: center;
+            &:hover {
+              color: @blue;
+            }
+          }
+          &.active {
+            a {
+              color: @blue;
+            }
+          }
+        }
+      }
+      .cmd-default {
+        .screen({ display: block; }, { display: inline-block; });
+        .screen({ margin-left: 0; }, { margin-left: 15px; });
+        font-size: 16px;
+
+        font-family: @header-font;
+      }
+    }
+  }
+}
